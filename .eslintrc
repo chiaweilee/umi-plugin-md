@@ -1,0 +1,7 @@
+{
+  "extends": ["ali/es6", "plugin:prettier/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
+}
