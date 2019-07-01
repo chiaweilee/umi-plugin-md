@@ -1,1 +1,1 @@
-declare module 'react-markdown-component-loader' {}
+declare module 'rc-md-loader' {}

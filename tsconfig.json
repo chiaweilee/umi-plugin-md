@@ -5,6 +5,8 @@
     "moduleResolution": "node",
     "lib": ["esnext", "dom"],
     "sourceMap": false,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true
   }
 }

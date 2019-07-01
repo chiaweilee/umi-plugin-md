@@ -1,6 +1,9 @@
 {
-  "extends": ["ali/es6", "plugin:prettier/recommended"],
+  "extends": ["ali/react", "plugin:prettier/recommended"],
   "plugins": ["prettier"],
+  "env": {
+    "jest": true
+  },
   "rules": {
     "prettier/prettier": "error"
   }

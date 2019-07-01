@@ -1,54 +1,72 @@
 {
-  "name": "react-markdown-component-loader",
-  "version": "0.0.0",
+  "name": "rc-md-loader",
+  "version": "0.0.0-beta.0",
   "scripts": {
-    "prepublishOnly": "npm test && npm run build && np --no-cleanup --yolo --no-publish",
+    "prepublishOnly": "npm run build",
     "lint": "npm run lint:es && npm run lint:ts",
     "lint:es": "eslint --ext .js --ext .jsx . --fix",
     "lint:ts": "tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix",
-    "test": "umi test --coverage",
+    "test": "DEBUG=loader umi test --coverage",
     "build": "npm run build:babel",
-    "build:babel": "npx babel src --out-dir lib --extensions \".ts\"",
+    "build:babel": "npx babel src --out-dir lib --extensions \".tsx\"",
     "precommit": "lint-staged"
   },
-  "main": "lib/index.js",
+  "main": "lib/loader.js",
   "files": [
     "lib",
     "index.d.ts",
     "types.d.ts"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "highlight.js": "^9.15.8",
+    "loader-utils": "^1.2.3",
+    "markdown-it": "^8.4.2"
+  },
+  "peerDependencies": {
+    "react": "^16.6.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
-    "@babel/plugin-transform-typescript": "^7.4.0",
+    "@babel/plugin-transform-typescript": "^7.4.5",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-typescript": "^7.3.3",
-    "@types/node": "^11.11.3",
     "@types/jest": "^24.0.15",
+    "@types/node": "^11.11.3",
+    "@types/react": "^16.8.22",
     "babel-eslint": "^9.0.0",
+    "debug": "^4.1.1",
     "eslint": "^5.12.0",
     "eslint-config-ali": "^5.0.1",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.14.2",
     "husky": "^0.14.3",
     "jest": "^24.8.0",
     "lint-staged": "^7.2.2",
     "np": "^3.0.4",
+    "prettier": "^1.18.2",
+    "react": "^16.8.6",
     "tslint": "^5.18.0",
     "tslint-config-ali": "^0.2.4",
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
     "typescript": "^3.3.3333"
-    },
+  },
   "lint-staged": {
-    "*.{ts,tsx}": ["tslint --fix", "git add"],
-    "*.{js,jsx}": ["eslint --fix", "git add"],
+    "*.{ts,tsx}": [
+      "tslint --fix",
+      "git add"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
     "*.{js,jsx,json,ts,tsx,css,md}": [
-    "prettier --write",
-    "git add"
+      "prettier --write",
+      "git add"
     ]
   },
   "engines": {
