@@ -11,7 +11,7 @@ interface IOption {
 export default function(api: IApi, option = {} as IOption) {
   // patch getRouteConfigFromDir
   api.onStart(() => {
-    patch();
+    patch(api.debug);
   });
 
   // url-loader excludes
