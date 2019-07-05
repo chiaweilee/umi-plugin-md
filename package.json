@@ -1,9 +1,9 @@
 {
   "name": "umi-plugin-md",
-  "version": "0.0.0-beta.2",
+  "version": "0.0.0-beta.3",
   "description": "Markdown(*.md) component plugin for umi.",
   "scripts": {
-    "postinstall": "node scripts/patch.js",
+    "postinstall": "node ./scripts/patch.js",
     "prepublishOnly": "npm run build",
     "lint": "npm run lint:es && npm run lint:ts",
     "lint:es": "eslint --ext .js --ext .jsx . --fix",
