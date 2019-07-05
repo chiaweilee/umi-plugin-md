@@ -3,6 +3,7 @@
   "version": "0.0.0-beta.1",
   "description": "Markdown(*.md) component plugin for umi.",
   "scripts": {
+    "postinstall": "node scripts/patch.js",
     "prepublishOnly": "npm run build",
     "lint": "npm run lint:es && npm run lint:ts",
     "lint:es": "eslint --ext .js --ext .jsx . --fix",
@@ -16,7 +17,8 @@
   },
   "main": "lib/index.js",
   "files": [
-    "lib"
+    "lib",
+    "scripts"
   ],
   "dependencies": {
     "@babel/core": "^7.3.4",

@@ -10,7 +10,9 @@ interface IOption {
 
 export default function(api: IApi, option = {} as IOption) {
   // patch getRouteConfigFromDir
-  patch();
+  api.onStart(() => {
+    patch();
+  });
 
   // url-loader excludes
   api.modifyDefaultConfig(config => {
