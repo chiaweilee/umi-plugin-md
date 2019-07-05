@@ -6,12 +6,15 @@
     "lint": "npm run lint:es && npm run lint:ts",
     "lint:es": "eslint --ext .js --ext .jsx . --fix",
     "lint:ts": "tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix",
+    "prestart": "npm run build",
+    "start": "DEBUG=loader umi dev",
     "test": "DEBUG=loader umi test --coverage",
+    "patch": "node ./scripts/patch",
     "build": "npm run build:babel",
     "build:babel": "npx babel src --out-dir lib --extensions \".tsx\"",
     "precommit": "lint-staged"
   },
-  "main": "lib/loader.js",
+  "main": "lib/index.js",
   "files": [
     "lib",
     "index.d.ts",
@@ -53,7 +56,8 @@
     "tslint-config-ali": "^0.2.4",
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.3.3333",
+    "umi": "^2.8.8"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
