@@ -4,7 +4,11 @@ import patch from './patch';
 const path = require('path');
 const loader = path.join(__dirname, './loader');
 
-export default function(api: IApi) {
+interface IOption {
+  wrapper?: string;
+}
+
+export default function(api: IApi, option = {} as IOption) {
   // patch getRouteConfigFromDir
   patch();
 
@@ -22,6 +26,9 @@ export default function(api: IApi) {
       .rule('md')
       .test(/.md$/)
       .use(loader)
+      .options({
+        wrapper: option.wrapper,
+      })
       .loader(loader);
   });
 }
