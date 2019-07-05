@@ -28,9 +28,7 @@ export default function(api: IApi, option = {} as IOption) {
       .rule('md')
       .test(/.md$/)
       .use(loader)
-      .options({
-        wrapper: option.wrapper,
-      })
+      .options(option)
       .loader(loader);
   });
 }
