@@ -1,12 +1,10 @@
-import React from 'react';
-
 const highlight = require('highlight.js');
 
-const renderHighlight = function(str: string, lang): string {
+const renderHighlight = function(source: string, lang): string {
   if (!(lang && highlight.getLanguage(lang))) {
     return '';
   }
-  return highlight.highlight(lang, str, true).value;
+  return highlight.highlight(lang, source, true).value;
 };
 
 const markdown = function(source: string, wrapper: string): string {
