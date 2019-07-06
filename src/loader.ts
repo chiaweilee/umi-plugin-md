@@ -10,8 +10,11 @@ const renderHighlight = function(source: string, lang): string {
 const markdown = function(source: string, wrapper: string): string {
   return require('markdown-it')('default', {
     html: true,
+    xhtmlOut: true,
+    breaks: true,
+    linkify: true,
+    typographer: true,
     highlight: renderHighlight,
-    wrapper,
   }).render(source);
 };
 
@@ -33,7 +36,7 @@ export default function loader(source: string) {
 
   const component = `import React from 'react';
   export default function({ className, style }) {
-    return <${opts.wrapper} className={className} style={style}>${code}</${opts.wrapper}>;
+    return (<${opts.wrapper} className={className} style={style}>${code}</${opts.wrapper}>);
   }`;
 
   return require('@babel/core').transform(component, {
