@@ -4,8 +4,10 @@ import patch from './patch';
 const path = require('path');
 const loader = path.join(__dirname, './loader');
 
-interface IOption {
+export interface IOption {
   wrapper?: string;
+  className?: string;
+  style?: string;
 }
 
 export default function(api: IApi, option = {} as IOption) {

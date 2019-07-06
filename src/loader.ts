@@ -1,3 +1,5 @@
+import { IOption } from './index';
+
 const highlight = require('highlight.js');
 
 const renderHighlight = function(source: string, lang): string {
@@ -7,19 +9,25 @@ const renderHighlight = function(source: string, lang): string {
   return highlight.highlight(lang, source, true).value;
 };
 
-const markdown = function(source: string, wrapper: string): string {
-  return require('markdown-it')('default', {
-    html: true,
-    xhtmlOut: true,
-    breaks: true,
-    linkify: true,
-    typographer: true,
-    highlight: renderHighlight,
-  }).render(source);
+const markdown = function(source: string, options = {} as object): string {
+  return require('markdown-it')(
+    'default',
+    Object.assign(
+      {
+        html: true,
+        xhtmlOut: true,
+        breaks: true,
+        linkify: true,
+        typographer: true,
+        highlight: renderHighlight,
+      },
+      options,
+    ),
+  ).render(source);
 };
 
 export default function loader(source: string) {
-  const opts = {
+  const opts: IOption = {
     // default opts
     wrapper: 'section',
   };
@@ -32,11 +40,13 @@ export default function loader(source: string) {
     Object.assign(opts, require('loader-utils').getOptions(this));
   }
 
-  const code: string = markdown(source, opts.wrapper);
+  const { wrapper, className, style, ...options } = opts;
+
+  const code: string = markdown(source, options);
 
   const component = `import React from 'react';
-  export default function({ className, style }) {
-    return (<${opts.wrapper} className={className} style={style}>${code}</${opts.wrapper}>);
+  export default function() {
+    return (<${opts.wrapper} className="${className}" style={${style}}>${code}</${wrapper}>);
   }`;
 
   return require('@babel/core').transform(component, {
