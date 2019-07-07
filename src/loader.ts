@@ -26,6 +26,10 @@ const markdown = function(source: string, options = {} as object): string {
   ).render(source);
 };
 
+const replace = function(source: string): string {
+  return source.replace(/([{}])/g, "{'$1'}");
+};
+
 export default function loader(source: string) {
   const opts: IOption = {
     // default opts
@@ -42,7 +46,7 @@ export default function loader(source: string) {
 
   const { wrapper, className, style, ...options } = opts;
 
-  const code: string = markdown(source, options);
+  const code: string = require('xss')(replace(markdown(source, options)));
 
   const component = `import React from 'react';
   export default function() {
