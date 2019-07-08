@@ -8,6 +8,8 @@ Markdown(\*.md) component plugin for umi.
 * **highlight:** highlight render
 * **xss:** protect by [xss](https://www.npmjs.com/package/xss)
 
+![Example](https://raw.githubusercontent.com/chiaweilee/umi-plugin-md/master/Screenshot%202019-07-08%20at%2021.15.41.png)
+
 ## Installation
 
 ```
@@ -34,6 +36,12 @@ export default {
 
 That's it!
 Try create a markdown file under `pages`, and `npm start` then
+
+## Layout
+
+*Wanna layout for markdown?*
+
+try this, https://umijs.org/guide/router.html#different-global-layout
 
 ## todo
 
