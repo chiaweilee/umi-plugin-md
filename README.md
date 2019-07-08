@@ -1,6 +1,6 @@
 # [umi-plugin-md](#) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/chiaweilee/umi-plugin-md/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/umi-plugin-md.svg?style=flat)](https://www.npmjs.com/package/umi-plugin-md) [![npm downloads](https://img.shields.io/npm/dm/umi-plugin-md.svg)](https://npmcharts.com/compare/umi-plugin-md?minimal=true) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#)
 
-Markdown(\*.md) component plugin for umi.
+Markdown(\*.md) component plugin for umi. Convenient and powerful for blog, documentation site and GitBook.
 
 *create your website with umi and markdown only.*
 
