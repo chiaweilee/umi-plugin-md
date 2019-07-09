@@ -41,7 +41,7 @@ Try create a markdown file under `pages`, and `npm start` then
 
 *wanna style for markdown?*
 
-suggest, https://www.npmjs.com/package/github-markdown-css
+Suggest, [github-markdown-css](https://www.npmjs.com/package/github-markdown-css)
 
 `css
 // global.css
@@ -54,8 +54,8 @@ and set plugin option `className: 'markdown-body'`
 
 *Wanna layout for markdown?*
 
-try this, https://umijs.org/guide/router.html#different-global-layout
+Read this, [umijs#different-global-layout](https://umijs.org/guide/router.html#different-global-layout)
 
 ## todo
 
-- abandon 'patch.js', try https://umijs.org/plugin/develop.html#addrouterimport / https://umijs.org/plugin/develop.html#modifyroutes
+- abandon 'patch.js', gonna to be graceful. [addrouterimport](https://umijs.org/plugin/develop.html#addrouterimport) / [modifyroutes](https://umijs.org/plugin/develop.html#modifyroutes)
