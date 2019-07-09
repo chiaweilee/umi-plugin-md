@@ -43,10 +43,10 @@ Try create a markdown file under `pages`, and `npm start` then
 
 Suggest, [github-markdown-css](https://www.npmjs.com/package/github-markdown-css)
 
-`css
+```css
 // global.css
 @import "~github-markdown-css/github-markdown.css";
-`
+```
 
 and set plugin option `className: 'markdown-body'`
 
