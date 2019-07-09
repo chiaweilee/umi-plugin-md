@@ -37,6 +37,19 @@ export default {
 That's it!
 Try create a markdown file under `pages`, and `npm start` then
 
+## Stylize
+
+*wanna style for markdown?*
+
+suggest, https://www.npmjs.com/package/github-markdown-css
+
+`css
+// global.css
+@import "~github-markdown-css/github-markdown.css";
+`
+
+and set plugin option `className: 'markdown-body'`
+
 ## Layout
 
 *Wanna layout for markdown?*
