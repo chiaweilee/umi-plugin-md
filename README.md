@@ -4,9 +4,9 @@ Markdown(\*.md) component plugin for umi.
 
 *Create your website with umi and markdown only. Convenient and powerful for blog, documentation site and GitBook.*
 
-* **markdown-it:** powered by markdown-it
-* **highlight:** highlight render
-* **xss:** protect by [xss](https://www.npmjs.com/package/xss)
+* **Convert markdown into component:** loaded by `markdown-it` and translate into React component.
+* **Auto routes create:** auto create markdown routes from dir.
+* **XSS protect:** by [xss](https://www.npmjs.com/package/xss).
 
 ![Example](https://raw.githubusercontent.com/chiaweilee/umi-plugin-md/master/Screenshot%202019-07-08%20at%2021.15.41.png)
 
@@ -21,41 +21,44 @@ npm install umi-plugin-md
 ```js
 // .umirc.js
 export default {
-  plugins: [
-    [
-      `umi-plugin-md`,
-      {
-        // option
-        wrapper: 'section',
-        className: 'markdown-body',
-      },
-    ],
-  ],
+  plugins: ['umi-plugin-md'],
 };
 ```
 
-That's it!
-Try create a markdown file under `pages`, and `npm start` then
+## Options
+
+option | intro | type |  default  
+-|-|-|-
+wrapper | HTMLElementTagName |string | section |
+className | React className | string | |
+style | React style | object | |
+html | markdown-it option | boolean | true |
+xhtmlOut | markdown-it option | boolean | true |
+breaks | markdown-it option | boolean | true |
+linkify | markdown-it option | boolean | true |
+typographer | markdown-it option | boolean | true |
+highlight | markdown-it option | function | highlight.js |
 
 ## Stylize
 
-*wanna style for markdown?*
-
-Suggest, [github-markdown-css](https://www.npmjs.com/package/github-markdown-css)
+[github-markdown-css](https://www.npmjs.com/package/github-markdown-css)
 
 ```css
 // global.css
 @import "~github-markdown-css/github-markdown.css";
 ```
 
-and set plugin option `className: 'markdown-body'`
+```js
+// .umirc.js
+export default {
+  plugins: [['umi-plugin-md', { className: 'markdown-body' }]],
+};
+```
 
 ## Layout
 
-*Wanna layout for markdown?*
+Try `_layout.js`.
 
-Read this, [umijs#different-global-layout](https://umijs.org/guide/router.html#different-global-layout)
+## Example
 
-## todo
-
-- abandon 'patch.js', gonna to be graceful. [addrouterimport](https://umijs.org/plugin/develop.html#addrouterimport) / [modifyroutes](https://umijs.org/plugin/develop.html#modifyroutes)
+See [pages](https://github.com/chiaweilee/umi-plugin-md/tree/master/src/pages)

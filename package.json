@@ -1,32 +1,31 @@
 {
   "name": "umi-plugin-md",
-  "version": "0.0.0-beta.12",
+  "version": "0.1.0-beta.1",
   "description": "Markdown(*.md) component plugin for umi.",
   "scripts": {
-    "postinstall": "node ./scripts/patch.js",
     "prepublishOnly": "npm run build",
     "lint": "npm run lint:es && npm run lint:ts",
     "lint:es": "eslint --ext .js --ext .jsx . --fix",
     "lint:ts": "tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix",
     "prestart": "npm run build",
-    "start": "DEBUG=loader umi dev",
-    "test": "DEBUG=loader umi test --coverage",
+    "start": "umi dev",
+    "test": "umi test --coverage",
     "build": "npm run build:babel",
     "build:babel": "npx babel src --out-dir lib --extensions \".ts\"",
     "precommit": "lint-staged"
   },
   "main": "lib/index.js",
   "files": [
-    "lib",
-    "scripts"
+    "lib"
   ],
   "dependencies": {
     "@babel/core": "^7.3.4",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "highlight.js": "^9.15.8",
     "loader-utils": "^1.2.3",
+    "lodash": "^4.17.14",
     "markdown-it": "^8.4.2",
-    "umi-build-dev": "^1.10.9",
+    "umi-utils": "^1.5.1",
     "xss": "^1.0.6"
   },
   "peerDependencies": {
