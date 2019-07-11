@@ -1,5 +1,6 @@
 import { IApi } from 'umi-plugin-types';
-import patch from './patch';
+import getRouteConfigFromDir from './getRouteConfigFromDir';
+import mergeRoute from './mergeRoute';
 
 const path = require('path');
 const loader = path.join(__dirname, './loader');
@@ -7,13 +8,28 @@ const loader = path.join(__dirname, './loader');
 export interface IOption {
   wrapper?: string;
   className?: string;
-  style?: string;
+  style?: object;
 }
 
-export default function(api: IApi, option = {} as IOption) {
-  // patch getRouteConfigFromDir
-  api.onStart(() => {
-    patch(api.debug);
+interface ExIApi extends IApi {
+  service: Service;
+}
+
+interface Service {
+  paths: Paths;
+}
+
+interface Paths {
+  cwd: string;
+  absPagesPath: string;
+  absSrcPath: string;
+  dirPath?: string;
+}
+
+export default function(api: ExIApi, option = {} as IOption) {
+  api.modifyRoutes((routes: any[]) => {
+    const mdRoutes = getRouteConfigFromDir(api.service.paths);
+    return mergeRoute(mdRoutes, routes);
   });
 
   // url-loader excludes
