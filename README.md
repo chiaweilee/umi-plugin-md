@@ -39,6 +39,10 @@ linkify | markdown-it option | boolean | true |
 typographer | markdown-it option | boolean | true |
 highlight | markdown-it option | function | highlight.js |
 
+**tips**: `route of markdown will have higher priority, so route might be covered.`
+
+e.g, `index.md` will cover `index.jsx`.
+
 ## Stylize
 
 [github-markdown-css](https://www.npmjs.com/package/github-markdown-css)
