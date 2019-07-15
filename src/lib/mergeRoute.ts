@@ -8,13 +8,17 @@ interface Routes {
 }
 
 export default function mergeRoute(source: Routes[], target: Routes[]): Routes[] {
-  if (!Array.isArray(source)) { source = []; }
-  if (!Array.isArray(target)) { target = []; }
+  if (!Array.isArray(source)) {
+    source = [];
+  }
+  if (!Array.isArray(target)) {
+    target = [];
+  }
 
   forEach(source, s => {
     const max = target.length;
     every(target, (t, i) => {
-      if ((t.path === s.path)) {
+      if (t.path === s.path) {
         target[i] = s;
         if (Array.isArray(t.routes) || Array.isArray(s.routes)) {
           // @ts-ignore

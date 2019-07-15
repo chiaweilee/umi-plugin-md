@@ -1,6 +1,6 @@
 import { IApi } from 'umi-plugin-types';
-import getRouteConfigFromDir from './getRouteConfigFromDir';
-import mergeRoute from './mergeRoute';
+import getRouteConfigFromDir from './lib/getRouteConfigFromDir';
+import mergeRoute from './lib/mergeRoute';
 
 const path = require('path');
 const loader = path.join(__dirname, './loader');
@@ -9,6 +9,7 @@ export interface IOption {
   wrapper?: string;
   className?: string;
   style?: object;
+  anchor?: string[] | boolean;
 }
 
 interface ExIApi extends IApi {

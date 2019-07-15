@@ -21,6 +21,7 @@
   "dependencies": {
     "@babel/core": "^7.3.4",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "cheerio": "^1.0.0-rc.3",
     "highlight.js": "^9.15.8",
     "loader-utils": "^1.2.3",
     "lodash": "^4.17.14",
