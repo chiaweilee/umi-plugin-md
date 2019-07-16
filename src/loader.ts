@@ -2,7 +2,7 @@ import { IOption } from './index';
 import markdown from './lib/markdown';
 import replaceArchor from './lib/replaceArchor';
 
-function replace(source: string): string {
+function replaceJSX(source: string): string {
   return source.replace(/([{}])/g, "{'$1'}");
 }
 
@@ -24,7 +24,7 @@ export default function loader(source: string) {
   const { wrapper, className, style, ...options } = opts;
 
   const code: string = require('xss')(
-    replace(replaceArchor(markdown(source, options), opts.anchor)),
+    replaceJSX(replaceArchor(markdown(source, options), opts.anchor)),
   );
 
   const result = `<${opts.wrapper} className="${className}" style={${style}}>${code}</${wrapper}>`;
