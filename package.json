@@ -16,7 +16,8 @@
   },
   "main": "lib/index.js",
   "files": [
-    "lib"
+    "lib",
+    "anchor.css"
   ],
   "dependencies": {
     "@babel/core": "^7.3.4",
