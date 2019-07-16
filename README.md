@@ -29,7 +29,8 @@ export default {
 
 option | intro | type |  default  
 -|-|-|-
-wrapper | HTMLElementTagName |string | section |
+anchor | Auto Anchor `^0.2.0` | string[], falsy to disable | ['h1', 'h2', 'h3'] |
+wrapper | HTMLElementTagName | string | section |
 className | React className | string | |
 style | React style | object | |
 html | markdown-it option | boolean | true |
@@ -43,7 +44,22 @@ highlight | markdown-it option | function | highlight.js |
 
 e.g, `index.md` will cover `index.jsx`.
 
-## Stylize
+## Anchor
+
+![Example](https://raw.githubusercontent.com/chiaweilee/umi-plugin-md/master/Screenshot%202019-07-16%20at%2022.56.20.png)
+
+#### Anchor Stylize
+
+```css
+// global.css
+@import "~umi-plugin-md/anchor.css";
+```
+
+Or, write yourself.
+
+tips: we do not support `scroll to anchor on did mount` this moment.
+
+## Markdown Stylize
 
 [github-markdown-css](https://www.npmjs.com/package/github-markdown-css)
 

@@ -6,8 +6,11 @@ h5 {
   .anchor {
     display: none;
     position: absolute;
-    transform: translateX(-150%);
+    transform: translateX(-100%);
     font-family: serif;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: inherit !important;
     &:after {
       content: '#';
     }
@@ -20,8 +23,7 @@ h3:hover,
 h4:hover,
 h5:hover {
   .anchor {
-    display: none;
+    display: block;
     position: absolute;
-    transform: translateX(-150%);
   }
 }

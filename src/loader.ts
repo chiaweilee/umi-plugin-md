@@ -1,10 +1,5 @@
 import { IOption } from './index';
-import markdown from './lib/markdown';
-import replaceArchor from './lib/replaceArchor';
-
-function replaceJSX(source: string): string {
-  return source.replace(/([{}])/g, "{'$1'}");
-}
+import loadContent from './lib/loadContent';
 
 export default function loader(source: string) {
   const opts: IOption = {
@@ -21,19 +16,18 @@ export default function loader(source: string) {
     Object.assign(opts, require('loader-utils').getOptions(this));
   }
 
-  const { wrapper, className, style, ...options } = opts;
-
-  const code: string = require('xss')(
-    replaceJSX(replaceArchor(markdown(source, options), opts.anchor)),
-  );
-
-  const result = `<${opts.wrapper} className="${className}" style={${style}}>${code}</${wrapper}>`;
+  const { anchor, wrapper, className, style, ...options } = opts;
+  const rawHtml = loadContent(source, {
+    markdown: options,
+    anchor,
+    wrapper,
+    className,
+    style,
+  });
 
   const component = `import React from 'react';
-  export default class MarkdownAnonymous extends React.PureComponent {
-    render() {
-      return (${result});
-    }
+  export default function() {
+    return (${rawHtml});
   }`;
 
   return require('@babel/core').transform(component, {

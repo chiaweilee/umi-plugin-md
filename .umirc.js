@@ -7,6 +7,10 @@ export default {
       `${__dirname}/lib`,
       {
         wrapper: 'div',
+        className: 'markdown-body',
+        style: {
+          padding: '30px',
+        },
       },
     ],
   ],
