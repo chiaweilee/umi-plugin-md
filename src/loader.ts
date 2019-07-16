@@ -1,39 +1,11 @@
 import { IOption } from './index';
-
-const highlight = require('highlight.js');
-
-const renderHighlight = function(source: string, lang): string {
-  if (!(lang && highlight.getLanguage(lang))) {
-    return '';
-  }
-  return highlight.highlight(lang, source, true).value;
-};
-
-const markdown = function(source: string, options = {} as object): string {
-  return require('markdown-it')(
-    'default',
-    Object.assign(
-      {
-        html: true,
-        xhtmlOut: true,
-        breaks: true,
-        linkify: true,
-        typographer: true,
-        highlight: renderHighlight,
-      },
-      options,
-    ),
-  ).render(source);
-};
-
-const replace = function(source: string): string {
-  return source.replace(/([{}])/g, "{'$1'}");
-};
+import loadContent from './lib/loadContent';
 
 export default function loader(source: string) {
   const opts: IOption = {
     // default opts
     wrapper: 'section',
+    anchor: ['h1', 'h2', 'h3'],
   };
 
   if (this) {
@@ -44,16 +16,23 @@ export default function loader(source: string) {
     Object.assign(opts, require('loader-utils').getOptions(this));
   }
 
-  const { wrapper, className, style, ...options } = opts;
-
-  const code: string = require('xss')(replace(markdown(source, options)));
+  const { anchor, wrapper, className, style, ...options } = opts;
+  const rawHtml = loadContent(source, {
+    markdown: options,
+    anchor,
+    wrapper,
+    className,
+    style,
+  });
 
   const component = `import React from 'react';
   export default function() {
-    return (<${opts.wrapper} className="${className}" style={${style}}>${code}</${wrapper}>);
+    return (${rawHtml});
   }`;
 
-  return require('@babel/core').transform(component, {
+  return require('@babel/core').transformSync(component, {
     plugins: ['@babel/plugin-transform-react-jsx'],
+    babelrc: false,
+    configFile: false,
   }).code;
 }
