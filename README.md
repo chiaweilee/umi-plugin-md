@@ -66,6 +66,7 @@ tips: we do not support `scroll to anchor on did mount` this moment.
 ```css
 // global.css
 @import "~github-markdown-css/github-markdown.css";
+@import "~highlight.js/styles/github.css";
 ```
 
 ```js
