@@ -30,7 +30,7 @@ export default function loader(source: string) {
   const result = `<${opts.wrapper} className="${className}" style={${style}}>${code}</${wrapper}>`;
 
   const component = `import React from 'react';
-  export default class A extends React.PureComponent {
+  export default class MarkdownAnonymous extends React.PureComponent {
     render() {
       return (${result});
     }
