@@ -1,0 +1,27 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  .anchor {
+    display: none;
+    position: absolute;
+    transform: translateX(-150%);
+    font-family: serif;
+    &:after {
+      content: '#';
+    }
+  }
+}
+
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover {
+  .anchor {
+    display: none;
+    position: absolute;
+    transform: translateX(-150%);
+  }
+}
