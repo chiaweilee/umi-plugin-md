@@ -11,12 +11,11 @@ export default function(html: string, anchor: string[] | boolean): string {
 
   anchor.forEach(_ => {
     $(_).each(function() {
-      const text = $(this).text();
-      $(this).prepend(`<a id="${text}" href="#${text}">#</a>`);
+      const hash = $(this).text(); // todo hash
+      $(this).attr(id, hash);
+      $(this).prepend(`<a class="anchor" href="#${hash}" />`);
     });
   });
-
-  console.log($.html());
 
   return selfClose($.html());
 }
