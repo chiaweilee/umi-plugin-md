@@ -30,7 +30,9 @@ export default function loader(source: string) {
     return (${rawHtml});
   }`;
 
-  return require('@babel/core').transform(component, {
+  return require('@babel/core').transformSync(component, {
     plugins: ['@babel/plugin-transform-react-jsx'],
+    babelrc: false,
+    configFile: false,
   }).code;
 }
