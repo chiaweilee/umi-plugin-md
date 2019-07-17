@@ -1,5 +1,5 @@
 import { IOption } from './index';
-import loadContent from './lib/loadContent';
+import helpers from './helpers';
 
 export default function loader(source: string) {
   const opts: IOption = {
@@ -17,7 +17,7 @@ export default function loader(source: string) {
   }
 
   const { anchor, wrapper, className, style, ...options } = opts;
-  const rawHtml = loadContent(source, {
+  const rawHtml = helpers(source, {
     markdown: options,
     anchor,
     wrapper,
