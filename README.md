@@ -49,6 +49,17 @@ e.g, `index.md` will cover `index.jsx`.
 
 ![Example](https://raw.githubusercontent.com/chiaweilee/umi-plugin-md/master/Screenshot%202019-07-16%20at%2022.56.20.png)
 
+#### Get anchor id?
+
+```js
+import { slug } from 'umi-plugin-md';
+
+var text = $('h2').text();
+var id = slug(text);
+```
+
+Or copy `umi-plugin-md/lib/helpers/slug.js` to your repo.
+
 #### Anchor Stylize
 
 ```css
