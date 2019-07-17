@@ -1,6 +1,6 @@
 import markdown from './markdown';
-import replaceArchor from './replaceArchor';
-import buildWrapper from './buildWrapper';
+import anchor from './anchor';
+import wrapper from './wrapper';
 import encode from './encode';
 
 interface Opt {
@@ -13,9 +13,9 @@ interface Opt {
 
 export default function(source: string, options: Opt): string {
   source = markdown(source, options.markdown);
-  source = replaceArchor(source, options.anchor);
+  source = anchor(source, options.anchor);
   source = encode(source);
-  source = buildWrapper(source, options.wrapper, {
+  source = wrapper(source, options.wrapper, {
     className: options.className,
     style: options.style,
   });

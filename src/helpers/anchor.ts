@@ -1,7 +1,7 @@
 import selfClose from './selfClose';
+import slug from './slug';
 
 const cheerio = require('cheerio');
-const sh = require('shorthash');
 
 export default function(html: string, anchor: string[] | boolean): string {
   if (!html || !Array.isArray(anchor)) {
@@ -12,7 +12,7 @@ export default function(html: string, anchor: string[] | boolean): string {
 
   anchor.forEach(_ => {
     $(_).each(function() {
-      const hash = sh.unique($(this).text());
+      const hash = slug($(this).text());
       $(this).attr('id', hash);
       $(this).prepend(`<a class="anchor" href="#${hash}" />`);
     });

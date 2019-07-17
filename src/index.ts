@@ -1,9 +1,11 @@
 import { IApi } from 'umi-plugin-types';
-import getRouteConfigFromDir from './lib/getRouteConfigFromDir';
-import mergeRoute from './lib/mergeRoute';
+import getRouteConfigFromDir from './helpers/getRouteConfigFromDir';
+import mergeRoute from './helpers/mergeRoute';
 
 const path = require('path');
 const loader = path.join(__dirname, './loader');
+
+export { default as slug } from './helpers/slug';
 
 export interface IOption {
   wrapper?: string;
