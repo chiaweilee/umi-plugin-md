@@ -6,6 +6,7 @@ Markdown(\*.md) component plugin for umi.
 
 * **Convert markdown into component:** loaded by `markdown-it` and translate into React component.
 * **Auto routes create:** auto create markdown routes from dir.
+* **Auto anchor:** auto create anchor for `h1`, `h2` and `h3`.
 * **XSS protect:** by [xss](https://www.npmjs.com/package/xss).
 
 ![Example](https://raw.githubusercontent.com/chiaweilee/umi-plugin-md/master/Screenshot%202019-07-08%20at%2021.15.41.png)
