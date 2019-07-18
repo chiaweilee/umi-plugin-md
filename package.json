@@ -1,9 +1,9 @@
 {
   "name": "umi-plugin-md",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Markdown(*.md) component plugin for umi.",
   "scripts": {
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm test && npm run build",
     "lint": "npm run lint:es && npm run lint:ts",
     "lint:es": "eslint --ext .js --ext .jsx . --fix",
     "lint:ts": "tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix",
@@ -13,6 +13,7 @@
     "build": "npm run build:babel && npm run build:less",
     "build:babel": "npx babel src --out-dir lib --extensions \".ts\"",
     "build:less": "lessc anchor.less anchor.css",
+    "build:umi": "umi build",
     "precommit": "lint-staged"
   },
   "main": "lib/index.js",
