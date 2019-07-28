@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-md",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Markdown(*.md) component plugin for umi.",
   "scripts": {
     "prepublishOnly": "npm test && npm run build",
