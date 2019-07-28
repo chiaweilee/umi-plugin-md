@@ -17,6 +17,11 @@ export default function mergeRoute(source: Routes[], target: Routes[]): Routes[]
 
   forEach(source, s => {
     const max = target.length;
+
+    if (!max) {
+      target = source;
+    }
+
     every(target, (t, i) => {
       if (t.path === s.path) {
         target[i] = s;
