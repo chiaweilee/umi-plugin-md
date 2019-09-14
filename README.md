@@ -17,6 +17,10 @@ Markdown(\*.md) component plugin for umi.
 npm install umi-plugin-md
 ```
 
+## Demo
+
+https://chiaweilee.github.io/umi-plugin-md/
+
 ## Usage
 
 ```js
@@ -92,6 +96,6 @@ export default {
 
 Try `_layout.js`.
 
-## Example
+## Code Example
 
 See [pages](https://github.com/chiaweilee/umi-plugin-md/tree/master/src/pages)
