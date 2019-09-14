@@ -1,4 +1,9 @@
 export default {
+  base: '/umi-plugin-md/',
+  publicPath: '/umi-plugin-md/',
+  cssPublicPath: '/umi-plugin-md/',
+  runtimePublicPath: true,
+  outputPath: 'docs',
   chainWebpack(config) {
     config.plugins.delete('progress');
   },
