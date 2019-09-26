@@ -21,6 +21,11 @@ npm install umi-plugin-md
 
 https://chiaweilee.github.io/umi-plugin-md/
 
+## Code Example
+
+- [pages](https://github.com/chiaweilee/umi-plugin-md/tree/master/src/pages)
+- [.umirc.js](https://github.com/chiaweilee/umi-plugin-md/blob/master/.umirc.js)
+
 ## Usage
 
 ```js
@@ -73,7 +78,7 @@ Or copy `umi-plugin-md/lib/helpers/slug.js` to your repo.
 
 Or, write yourself.
 
-tips: we do not support `scroll to anchor on did mount` this moment.
+tips: we do not support `scroll to anchor on 'componentDidMount'` this moment.
 
 ## Markdown Stylize
 
@@ -94,8 +99,5 @@ export default {
 
 ## Layout
 
-Try `_layout.js`.
+Try `_layout.js` of umi.
 
-## Code Example
-
-See [pages](https://github.com/chiaweilee/umi-plugin-md/tree/master/src/pages)
