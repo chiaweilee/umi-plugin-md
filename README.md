@@ -21,11 +21,6 @@ npm install umi-plugin-md
 
 https://chiaweilee.github.io/umi-plugin-md/
 
-## Code Example
-
-- [pages](https://github.com/chiaweilee/umi-plugin-md/tree/master/src/pages)
-- [.umirc.js](https://github.com/chiaweilee/umi-plugin-md/blob/master/.umirc.js)
-
 ## Usage
 
 ```js
@@ -100,4 +95,8 @@ export default {
 ## Layout
 
 Try `_layout.js` of umi.
+
+## Priority
+
+`index.md` have higher priority than `index.jsx`.
 
