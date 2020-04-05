@@ -3,7 +3,7 @@ import { join, extname, basename, relative } from 'path';
 import { winPath, findJS } from 'umi-utils';
 import assert from 'assert';
 
-const JS_EXTNAMES = ['.md'];
+const JS_EXTNAMES = ['.md', '.mdx'];
 
 export function sortRoutes(routes) {
   const paramsRoutes = [];

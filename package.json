@@ -1,7 +1,7 @@
 {
-  "name": "umi-plugin-md",
+  "name": "umi-plugin-mdx",
   "version": "0.2.6",
-  "description": "Markdown(*.md) component plugin for umi.",
+  "description": "MDX component plugin for umi.",
   "scripts": {
     "prepublishOnly": "npm test && npm run build",
     "lint": "npm run lint:es && npm run lint:ts",
@@ -11,31 +11,22 @@
     "start": "umi dev",
     "docs": "npm run build && umi build",
     "test": "umi test --coverage",
-    "build": "npm run build:babel && npm run build:less",
+    "build": "npm run build:babel",
     "build:babel": "npx babel src --out-dir lib --extensions \".ts\"",
-    "build:less": "lessc anchor.less anchor.css",
     "build:umi": "umi build",
     "precommit": "lint-staged"
   },
   "main": "lib/index.js",
   "files": [
-    "lib",
-    "anchor.css"
+    "lib"
   ],
   "dependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "cheerio": "^1.0.0-rc.3",
-    "github-markdown-css": "^3.0.1",
-    "highlight.js": "^9.15.8",
-    "loader-utils": "^1.2.3",
-    "lodash": "^4.17.14",
-    "markdown-it": "^8.4.2",
-    "umi-utils": "^1.5.1",
-    "xss": "^1.0.6"
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-react-jsx": "^7.9.4",
+    "@mdx-js/loader": "^1.5.8"
   },
   "peerDependencies": {
-    "react": "^16.6.0"
+    "lodash": "*"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -67,7 +58,8 @@
     "tslint-eslint-rules": "^5.4.0",
     "typescript": "^3.3.3333",
     "umi": "^2.8.8",
-    "umi-plugin-types": "^0.3.2"
+    "umi-plugin-types": "^0.3.2",
+    "umi-utils": "^1.7.2"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

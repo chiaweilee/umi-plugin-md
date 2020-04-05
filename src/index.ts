@@ -2,18 +2,6 @@ import { IApi } from 'umi-plugin-types';
 import getRouteConfigFromDir from './helpers/getRouteConfigFromDir';
 import mergeRoute from './helpers/mergeRoute';
 
-const path = require('path');
-const loader = path.join(__dirname, './loader');
-
-export { default as slug } from './helpers/slug';
-
-export interface IOption {
-  wrapper?: string;
-  className?: string;
-  style?: object;
-  anchor?: string[] | boolean;
-}
-
 interface ExIApi extends IApi {
   service: Service;
 }
@@ -29,7 +17,10 @@ interface Paths {
   dirPath?: string;
 }
 
-export default function(api: ExIApi, option = {} as IOption) {
+const path = require('path');
+const loader = path.join(__dirname, './loader');
+
+export default function(api: ExIApi, option = {} as any) {
   api.modifyRoutes((routes: any[]) => {
     const mdRoutes = getRouteConfigFromDir(api.service.paths);
     return mergeRoute(mdRoutes, routes);
@@ -39,17 +30,21 @@ export default function(api: ExIApi, option = {} as IOption) {
   api.modifyDefaultConfig(config => {
     return {
       ...config,
-      urlLoaderExcludes: [/.md$/],
+      urlLoaderExcludes: [/.mdx?$/],
     };
   });
 
   // loader
   api.chainWebpackConfig(config => {
     config.module
-      .rule('md')
-      .test(/.md$/)
+      .rule('mdx')
+      .test(/.mdx?$/)
       .use(loader)
       .options(option)
-      .loader(loader);
+      .loader(loader)
+      .end()
+      .use('mdx')
+      .options(option)
+      .loader('@mdx-js/loader');
   });
 }
