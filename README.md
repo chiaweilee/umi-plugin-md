@@ -8,6 +8,7 @@ Markdown(\*.md) component plugin for umi.
 * **Auto routes create:** auto create markdown routes from dir.
 * **Auto anchor:** auto create anchor for `h1`, `h2` and `h3`.
 * **XSS protect:** by [xss](https://www.npmjs.com/package/xss).
+* **Support:** umi@2.x only
 
 ![Example](https://raw.githubusercontent.com/chiaweilee/umi-plugin-md/master/Screenshot%202019-07-08%20at%2021.15.41.png)
 
@@ -15,6 +16,12 @@ Markdown(\*.md) component plugin for umi.
 
 ```
 npm install umi-plugin-md
+```
+
+### Use .mdx?
+
+```
+npm install umi-plugin-mdx
 ```
 
 ## Demo
@@ -27,6 +34,13 @@ https://chiaweilee.github.io/umi-plugin-md/
 // .umirc.js
 export default {
   plugins: ['umi-plugin-md'],
+};
+```
+
+```js
+// .umirc.js
+export default {
+  plugins: ['umi-plugin-mdx'],
 };
 ```
 
