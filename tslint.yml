@@ -4,7 +4,6 @@ extends:
   - tslint-eslint-rules
   - tslint-config-ali
   - tslint-config-prettier
-jsRules:
 rules:
   eofline: true
   no-console: true
