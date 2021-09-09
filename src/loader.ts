@@ -1,4 +1,5 @@
 import { IOption } from './index';
+import defaultRender from './render';
 import helpers from './helpers';
 
 export default function loader(source: string) {
@@ -6,6 +7,7 @@ export default function loader(source: string) {
     // default opts
     wrapper: 'section',
     anchor: ['h1', 'h2', 'h3'],
+    render: defaultRender,
   };
 
   if (this) {
@@ -16,7 +18,7 @@ export default function loader(source: string) {
     Object.assign(opts, require('loader-utils').getOptions(this));
   }
 
-  const { anchor, wrapper, className, style, ...options } = opts;
+  const { anchor, wrapper, className, style, render, ...options } = opts;
   const rawHtml = helpers(source, {
     markdown: options,
     anchor,
@@ -25,12 +27,7 @@ export default function loader(source: string) {
     style,
   });
 
-  const component = `import React from 'react';
-  export default function() {
-    return (${rawHtml});
-  }`;
-
-  return require('@babel/core').transformSync(component, {
+  return require('@babel/core').transformSync(render(rawHtml), {
     plugins: ['@babel/plugin-transform-react-jsx'],
     babelrc: false,
     configFile: false,

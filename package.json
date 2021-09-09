@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-md",
-  "version": "0.2.6",
+  "version": "0.3.1",
   "description": "Markdown(*.md) component plugin for umi.",
   "scripts": {
     "prepublishOnly": "npm test && npm run build",
@@ -25,14 +25,14 @@
   "dependencies": {
     "@babel/core": "^7.3.4",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "cheerio": "^1.0.0-rc.3",
-    "github-markdown-css": "^3.0.1",
-    "highlight.js": "^9.15.8",
+    "cheerio": "^1.0.0-rc.10",
+    "github-markdown-css": "^4.0.0",
+    "highlight.js": "^10.7.3",
     "loader-utils": "^1.2.3",
     "lodash": "^4.17.14",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^12.2.0",
     "umi-utils": "^1.5.1",
-    "xss": "^1.0.6"
+    "xss": "^1.0.9"
   },
   "peerDependencies": {
     "react": "^16.6.0"

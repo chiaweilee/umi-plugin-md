@@ -4,10 +4,10 @@ extends:
   - tslint-eslint-rules
   - tslint-config-ali
   - tslint-config-prettier
-jsRules:
 rules:
   eofline: true
   no-console: true
   no-construct: true
   no-debugger: true
   no-reference: true
+  no-implicit-dependencies: false
