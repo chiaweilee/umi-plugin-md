@@ -18,12 +18,6 @@ Markdown(\*.md) component plugin for umi.
 npm install umi-plugin-md
 ```
 
-### Use .mdx?
-
-```
-npm install umi-plugin-mdx
-```
-
 ## Demo
 
 https://chiaweilee.github.io/umi-plugin-md/
@@ -34,13 +28,6 @@ https://chiaweilee.github.io/umi-plugin-md/
 // .umirc.js
 export default {
   plugins: ['umi-plugin-md'],
-};
-```
-
-```js
-// .umirc.js
-export default {
-  plugins: ['umi-plugin-mdx'],
 };
 ```
 
@@ -58,6 +45,7 @@ breaks | markdown-it option | boolean | true |
 linkify | markdown-it option | boolean | true |
 typographer | markdown-it option | boolean | true |
 highlight | markdown-it option | function | highlight.js |
+render | wrapper render | (rawHtml: string) => string; | see `src/render.ts` |
 
 **tips**: `route of markdown will have higher priority, so route might be covered.`
 
@@ -105,10 +93,6 @@ export default {
   plugins: [['umi-plugin-md', { className: 'markdown-body' }]],
 };
 ```
-
-## Layout
-
-Try `_layout.js` of umi.
 
 ## Priority
 

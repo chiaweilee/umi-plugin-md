@@ -12,6 +12,7 @@ export interface IOption {
   className?: string;
   style?: object;
   anchor?: string[] | boolean;
+  render?: (rawHtml: string) => string;
 }
 
 interface ExIApi extends IApi {
