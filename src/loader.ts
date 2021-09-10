@@ -28,6 +28,7 @@ export default function loader(source: string) {
   });
 
   return require('@babel/core').transformSync(render(rawHtml), {
+    presets: ['@babel/preset-react'],
     plugins: ['@babel/plugin-transform-react-jsx'],
     babelrc: false,
     configFile: false,

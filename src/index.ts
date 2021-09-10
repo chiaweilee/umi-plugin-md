@@ -17,6 +17,7 @@ export interface IOption {
 
 interface ExIApi extends IApi {
   service: Service;
+  describe?: any;
 }
 
 interface Service {
