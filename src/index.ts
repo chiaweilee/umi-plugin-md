@@ -42,7 +42,7 @@ export default function(api: ExIApi, option = {} as IOption) {
 
   // loader
   api.chainWebpackConfig(memo => {
-    if (nemo.module.rule('plaintext')) {
+    if (memo.module.rule('plaintext')) {
       memo.module.rule('plaintext').exclude.add(/\.md$/);
     }
     if (memo.module.rule('exclude')) {
