@@ -31,22 +31,24 @@ interface Paths {
 }
 
 export default function(api: ExIApi, option = {} as IOption) {
+  if (typeof api.describe === 'function') {
+    api.describe({ key: 'md' });
+  }
+
   api.modifyRoutes((routes: any[]) => {
     const mdRoutes = getRouteConfigFromDir(api.service.paths);
     return mergeRoute(mdRoutes, routes);
   });
 
-  // url-loader excludes
-  api.modifyDefaultConfig(config => {
-    return {
-      ...config,
-      urlLoaderExcludes: [/.md$/],
-    };
-  });
-
   // loader
-  api.chainWebpackConfig(config => {
-    config.module
+  api.chainWebpackConfig(memo => {
+    if (nemo.module.rule('plaintext')) {
+      memo.module.rule('plaintext').exclude.add(/\.md$/);
+    }
+    if (memo.module.rule('exclude')) {
+      memo.module.rule('exclude').exclude.add(/\.md$/);
+    }
+    memo.module
       .rule('md')
       .test(/.md$/)
       .use(loader)
