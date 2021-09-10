@@ -1,8 +1,8 @@
-const highlight = require('highlight.js');
+const hljs = require('highlight.js');
 
 export default function(source: string, lang): string {
-  if (!(lang && highlight.getLanguage(lang))) {
+  if (!(lang && hljs.getLanguage(lang))) {
     return '';
   }
-  return highlight.highlight(lang, source, true).value;
+  return hljs.highlight(source, { language: lang }).value;
 }
